@@ -1,0 +1,32 @@
+:root {
+    --base-font: 'Poppins' , sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #94d6b2;
+    min-height: 100vh;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: var(--base-font);
+}
+
+h1 {
+    font-family: 'Lemon' , cursive, serif;
+    color: #bd94d6;
+    text-shadow: 1px 1px #f1f1f1;
+    font-size: 6rem;
+    margin: 200px 0 100px 0;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+}
+
+.name-input {
+    width: 200px;
+}
