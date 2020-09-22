@@ -4,6 +4,8 @@
     --primary-color: #bd94d6;
     --off-white: #f1f1f1;
     --console-grey: #bec1c4;
+    --console-screen: #CADC9F;
+    --console-sprite: #0f380f;
 }
 
 * {
@@ -32,7 +34,7 @@ h1 {
 
 #intro {
     animation: fadeIn;
-    animation-duration: 2s;
+    animation-duration: 3s;
 }
 
 .input-container {
@@ -40,7 +42,7 @@ h1 {
     justify-content: center;
     margin-top: 100px;
     animation: fadeIn;
-    animation-duration: 1s;
+    animation-duration: 3s;
     margin-bottom: 100px;
 }
 
@@ -101,19 +103,31 @@ a {
 }
 
 #game-screen {
-    background-color: #CADC9F;
+    background-color: var(--console-screen);
     height: 80%;
     width: 80%;
     border: 1px solid black;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
 }
 
 #game-screen h3 {
     padding-top: 10px;
+    color: var(--console-sprite);
 }
 
 .game-button-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 .game-button-container button {
@@ -131,4 +145,14 @@ a {
 
 .game-button-container button:hover {
     color: rgba(0,0,0,1);
+}
+
+.game-stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    background-color: #306230;
+    color: var(--console-screen);
+    border-top: 
 }
