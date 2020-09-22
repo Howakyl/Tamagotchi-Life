@@ -3,11 +3,13 @@
     --secondary-color: #94d6b2;
     --primary-color: #bd94d6;
     --off-white: #f1f1f1;
+    --console-grey: #bec1c4;
 }
 
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    margin: 0;
 }
 body {
     background-color: var(--secondary-color);
@@ -39,6 +41,7 @@ h1 {
     margin-top: 100px;
     animation: fadeIn;
     animation-duration: 1s;
+    margin-bottom: 100px;
 }
 
 .input-container h4 {
@@ -63,7 +66,6 @@ h1 {
 
 .name-button {
     border: none;
-    /* margin-left: 10px; */
     width: 70px;
     font-size: 15px;
     border-bottom-right-radius: 5px;
@@ -76,12 +78,57 @@ h1 {
 a {
     text-decoration: none;
     color: black;
+    padding: 25px 7px;
 }
 
 #game-page {
     height: 1200px;
-    /* margin-top: 500px; */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.game-controller {
+    width: 60%;
+    background-color: var(--console-grey);
+    height: 600px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    border: 2px solid black;
+}
+
+#game-screen {
+    background-color: #CADC9F;
+    height: 80%;
+    width: 80%;
+    border: 1px solid black;
+}
+
+#game-screen h3 {
+    padding-top: 10px;
+}
+
+.game-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-button-container button {
+    margin: 40px 0;
+    font-size: 15px;
+    height: 3rem;
+    border-radius: 60%;
+    background-color: var(--primary-color);
+    color: rgba(0,0,0,.6);
+    font-family: 'Lemon' , cursive, serif;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+}
+
+.game-button-container button:hover {
+    color: rgba(0,0,0,1);
 }
