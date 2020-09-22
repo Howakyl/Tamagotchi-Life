@@ -154,5 +154,52 @@ a {
     padding: 10px 0;
     background-color: #306230;
     color: var(--console-screen);
-    border-top: 
+    border: 1px solid var(--console-sprite);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.sprite-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sprite {
+    /* animation: bounce; 
+    animation-duration: 1s; */
+    animation:walk 1s steps(1) infinite,
+    forward 20s linear infinite;
+    margin-top: 100px;
+    height: 100px;
+    width: 100px;
+}
+
+@keyframes walk {
+    0%{
+        animation: bounceIn;
+        animation-duration: 1s;
+    }
+    100% {
+        padding-left: 1px;
+    }
+}
+
+@keyframes forward {
+    0% {
+        transform: translateX(-400px);
+    }
+
+
+    50% {
+        transform: translateY(25px);
+    }
+    /* 75% {
+        transform: translateY(-25px);
+    } */
+    100% {
+        transform: translateX(-400px);
+    }
 }
