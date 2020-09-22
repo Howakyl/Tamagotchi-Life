@@ -25,8 +25,35 @@ h1 {
 .input-container {
     display: flex;
     justify-content: center;
+    margin-top: 100px;
 }
+
+.input-container h4 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
 
 .name-input {
     width: 200px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 15px;
+    text-align: center;
+    outline: none;
 }
+
+.name-button {
+    border: none;
+    /* margin-left: 10px; */
+    width: 70px;
+    font-size: 15px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #bd94d6;
+    font-family: 'Lemon' , cursive, serif;
+};
