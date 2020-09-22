@@ -1,12 +1,16 @@
 :root {
     --base-font: 'Poppins' , sans-serif;
+    --secondary-color: #94d6b2;
+    --primary-color: #bd94d6;
+    --off-white: #f1f1f1;
 }
 
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 body {
-    background-color: #94d6b2;
+    background-color: var(--secondary-color);
     min-height: 100vh;
     text-align: center;
     margin: 0;
@@ -16,16 +20,25 @@ body {
 
 h1 {
     font-family: 'Lemon' , cursive, serif;
-    color: #bd94d6;
-    text-shadow: 1px 1px #f1f1f1;
+    color: var(--primary-color);
+    text-shadow: 1px 1px var(--off-white);
     font-size: 6rem;
     margin: 200px 0 100px 0;
+    animation: bounceIn;
+    animation-duration: 1s;
+}
+
+#intro {
+    animation: fadeIn;
+    animation-duration: 2s;
 }
 
 .input-container {
     display: flex;
     justify-content: center;
     margin-top: 100px;
+    animation: fadeIn;
+    animation-duration: 1s;
 }
 
 .input-container h4 {
@@ -45,6 +58,7 @@ h1 {
     font-size: 15px;
     text-align: center;
     outline: none;
+    background-color: var(--off-white);
 }
 
 .name-button {
@@ -56,4 +70,18 @@ h1 {
     border-top-right-radius: 5px;
     background-color: #bd94d6;
     font-family: 'Lemon' , cursive, serif;
-};
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#game-page {
+    height: 1200px;
+    /* margin-top: 500px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
