@@ -8,6 +8,11 @@
     --console-sprite: #0f380f;
 }
 
+@font-face {
+    font-family: 'Gameboy';
+    src: url('/local-fonts/Early\ GameBoy.ttf');
+}
+
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -112,6 +117,7 @@ a {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    font-family: 'Gameboy';
 }
 
 .game-stats {
@@ -171,7 +177,7 @@ a {
     /* animation: bounce; 
     animation-duration: 1s; */
     animation:walk 1s steps(1) infinite,
-    forward 20s linear infinite;
+    forward 25s linear infinite;
     margin-top: 100px;
     height: 100px;
     width: 100px;
@@ -179,8 +185,8 @@ a {
 
 @keyframes walk {
     0%{
-        animation: bounceIn;
-        animation-duration: 1s;
+        animation: bounce;
+        animation-duration: 2s;
     }
     100% {
         padding-left: 1px;
@@ -195,10 +201,12 @@ a {
 
     50% {
         transform: translateY(25px);
+        transform: translateX(400px);
+
     }
-    /* 75% {
+    75% {
         transform: translateY(-25px);
-    } */
+    }
     100% {
         transform: translateX(-400px);
     }
