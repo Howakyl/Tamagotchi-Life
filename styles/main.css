@@ -215,3 +215,11 @@ a {
         transform: translateX(-200px);
     }
 }
+
+.heart {
+    height: 50px;
+    margin-bottom: 40px;
+    animation: bounce;
+    animation-duration: 5s;
+    visibility: hidden;
+}
