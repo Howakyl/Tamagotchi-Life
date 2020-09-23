@@ -1,4 +1,5 @@
-
+let $nameInput = $('name-input');
+let $petName = $('#pet-name');
 
 
 
@@ -13,8 +14,15 @@ class Pet {
 };
 
 class Tamagotchi extends Pet {
-    constructor (name) {
+    constructor (name = 'Tamagotchi') {
         super(0,0,0,0);
         this.name = name;
     }
-}
+};
+
+const Tamagotchi1 = new Tamagotchi;
+console.log(Tamagotchi1.name);
+
+Tamagotchi.name = $nameInput;
+
+$petName.text(`${Tamagotchi1.name} - age: ${Tamagotchi1.age}`);
