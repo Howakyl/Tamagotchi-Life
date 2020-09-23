@@ -8,6 +8,11 @@ let $sprite = $('.sprite');
 //Time Globals
 let startTime = 0;
 
+//Stat Globals
+let petAge = 0;
+let petHunger = 0;
+let petBoredom = 0;
+let petSleepiness = 0;
 
 // Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
 class Pet {
@@ -29,7 +34,10 @@ class Tamagotchi extends Pet {
 //Instance of Tamagotchi class
 const Tamagotchi1 = new Tamagotchi;
 
-
+//Stat Globals
+Tamagotchi1.age = petAge;
+Tamagotchi1.boredom = petBoredom;
+Tamagotchi1.sleep = petSleepiness;
 
 //function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
 //also removes the 'hidden' class from Sprite.
@@ -39,9 +47,23 @@ $('.name-button').on('click' , function () {
     return Tamagotchi1.name = $petName.text();
 });
 
+//function to keep track of time
 const startTimer = function () {
     const timer = setInterval(function () {
         startTime ++;
-        console.log(startTime);
+        console.log(`time is: ${startTime}`)
+        trackHunger();
     }, 1000);
 }
+
+const trackHunger = function () {
+    if (startTime % 2 === 0) {
+        petHunger++;
+        Tamagotchi1.hunger = petHunger;
+        console.log(Tamagotchi1.hunger);
+    }
+    
+}
+
+// startTimer();
+
