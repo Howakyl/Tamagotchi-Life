@@ -25,14 +25,22 @@ class Pet {
         this.sleep = sleep;
     }
 };
+
 //Tamagotchi class extending from Pet class, with param of name.
-
-
 class Tamagotchi extends Pet {
     constructor (name = 'Tamagotchi') {
         super(0,0,0,0);
         this.name = name;
     }
+
+    //function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
+    //also removes the 'hidden' class from Sprite.
+    changeName = $('.name-button').on('click' , function () {
+        $sprite.toggleClass('hidden');
+        $petName.text($(":text").val());
+        startTimer();
+        return this.name = $petName.text();
+    });
 
     //function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game.
     trackHunger = function () {
@@ -48,18 +56,9 @@ class Tamagotchi extends Pet {
 const Tamagotchi1 = new Tamagotchi;
 
 //Stat Globals
-Tamagotchi1.age = petAge;
-Tamagotchi1.boredom = petBoredom;
-Tamagotchi1.sleep = petSleepiness;
-
-//function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
-//also removes the 'hidden' class from Sprite.
-$('.name-button').on('click' , function () {
-    $sprite.toggleClass('hidden');
-    $petName.text($(":text").val());
-    // startTimer();
-    return Tamagotchi1.name = $petName.text();
-});
+// Tamagotchi1.age = petAge;
+// Tamagotchi1.boredom = petBoredom;
+// Tamagotchi1.sleep = petSleepiness;
 
 //function to keep track of time
 const startTimer = function () {
