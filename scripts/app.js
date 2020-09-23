@@ -2,9 +2,10 @@
 
 
 
-// Parent class for Tamagotchis, with params of hunger, boredom, and sleep)
+// Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
 class Pet {
-    constructor (hunger, boredom, sleep) {
+    constructor (age, hunger, boredom, sleep) {
+        this.age = age;
         this.hunger = hunger;
         this.boredom = boredom;
         this.sleep = sleep;
