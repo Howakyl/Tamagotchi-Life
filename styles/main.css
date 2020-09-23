@@ -174,13 +174,17 @@ a {
 }
 
 .sprite {
-    /* animation: bounce; 
-    animation-duration: 1s; */
+    animation: bounce; 
+    animation-duration: 1s;
     animation:walk 1s steps(1) infinite,
     forward 25s linear infinite;
     margin-top: 100px;
     height: 100px;
     width: 100px;
+}
+
+.sprite:hover {
+    animation-play-state: paused;
 }
 
 @keyframes walk {
@@ -195,19 +199,19 @@ a {
 
 @keyframes forward {
     0% {
-        transform: translateX(-400px);
+        transform: translateX(-200px);
     }
 
 
     50% {
         transform: translateY(25px);
-        transform: translateX(400px);
+        transform: translateX(200px);
 
     }
     75% {
         transform: translateY(-25px);
     }
     100% {
-        transform: translateX(-400px);
+        transform: translateX(-200px);
     }
 }
