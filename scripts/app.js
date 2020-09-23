@@ -26,10 +26,21 @@ class Pet {
     }
 };
 //Tamagotchi class extending from Pet class, with param of name.
+
+
 class Tamagotchi extends Pet {
     constructor (name = 'Tamagotchi') {
         super(0,0,0,0);
         this.name = name;
+    }
+
+    //function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game.
+    trackHunger = function () {
+        if (startTime % 20 === 0) {
+            petHunger++;
+            this.hunger = petHunger;
+        }
+        $('.hunger-stat').text(`Hunger: ${this.hunger}`);
     }
 };
 
@@ -55,19 +66,11 @@ const startTimer = function () {
     const timer = setInterval(function () {
         startTime ++;
         console.log(`time is: ${startTime}`)
-        trackHunger();
+        Tamagotchi1.trackHunger();
     }, 1000);
 }
 
-//function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game.
-const trackHunger = function () {
-    if (startTime % 10 === 0) {
-        petHunger++;
-        Tamagotchi1.hunger = petHunger;
-        console.log(Tamagotchi1.hunger);
-    }
-    $('.hunger-stat').text(`Hunger: ${Tamagotchi1.hunger}`);
-}
+
 
 // startTimer();
 
