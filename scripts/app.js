@@ -12,3 +12,9 @@ class Pet {
     }
 };
 
+class Tamagotchi extends Pet {
+    constructor (name) {
+        super(0,0,0,0);
+        this.name = name;
+    }
+}
