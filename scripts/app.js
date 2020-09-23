@@ -1,9 +1,9 @@
 //TODO:
-// fix distance pet walks
 
+//GLOBALS
 let $nameInput = $('.name-input');
 let $petName = $('#pet-name');
-
+let $sprite = $('.sprite');
 
 // const $setPetName = $('.name-input');
 
@@ -29,12 +29,11 @@ const Tamagotchi1 = new Tamagotchi;
 
 
 
-//function connecting Tamagotchi to $nameInput var. Allows user to give pet a name.
- let $changeName = $(document).ready(function () {
-    $(":text").keyup(function () {
-        $petName.text($(":text").val());
-        return Tamagotchi1.name = $petName.text();
-    });
+//function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
+//also removes the 'hidden' class from Sprite.
+$('.name-button').on('click' , function () {
+    $sprite.toggleClass('hidden');
+    $petName.text($(":text").val());
+    return Tamagotchi1.name = $petName.text();
 });
 
-console.log(Tamagotchi1.name);

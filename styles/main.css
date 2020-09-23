@@ -216,10 +216,13 @@ a {
     }
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .heart {
     height: 50px;
     margin-bottom: 60px;
     animation: bounce;
     animation-duration: 5s;
-    /* visibility: hidden; */
 }
