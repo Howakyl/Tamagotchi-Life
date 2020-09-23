@@ -199,7 +199,7 @@ a {
 
 @keyframes forward {
     0% {
-        transform: translateX(-200px);
+        transform: translateX(-150px);
     }
 
 
@@ -212,14 +212,14 @@ a {
         transform: translateY(-25px);
     }
     100% {
-        transform: translateX(-200px);
+        transform: translateX(-150px);
     }
 }
 
 .heart {
     height: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     animation: bounce;
     animation-duration: 5s;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
