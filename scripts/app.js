@@ -14,6 +14,8 @@ let petHunger = 0;
 let petBoredom = 0;
 let petSleepiness = 0;
 
+$('.food-button') 
+
 // Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
 class Pet {
     constructor (age, hunger, boredom, sleep) {
@@ -44,6 +46,7 @@ Tamagotchi1.sleep = petSleepiness;
 $('.name-button').on('click' , function () {
     $sprite.toggleClass('hidden');
     $petName.text($(":text").val());
+    // startTimer();
     return Tamagotchi1.name = $petName.text();
 });
 
@@ -56,13 +59,14 @@ const startTimer = function () {
     }, 1000);
 }
 
+//function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game.
 const trackHunger = function () {
-    if (startTime % 2 === 0) {
+    if (startTime % 10 === 0) {
         petHunger++;
         Tamagotchi1.hunger = petHunger;
         console.log(Tamagotchi1.hunger);
     }
-    
+    $('.hunger-stat').text(`Hunger: ${Tamagotchi1.hunger}`);
 }
 
 // startTimer();
