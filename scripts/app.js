@@ -1,11 +1,13 @@
 //TODO:
 
-//GLOBALS
+//Name & sprite globals
 let $nameInput = $('.name-input');
 let $petName = $('#pet-name');
 let $sprite = $('.sprite');
 
-// const $setPetName = $('.name-input');
+//Time Globals
+let startTime = 0;
+
 
 // Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
 class Pet {
@@ -37,3 +39,9 @@ $('.name-button').on('click' , function () {
     return Tamagotchi1.name = $petName.text();
 });
 
+const startTimer = function () {
+    const timer = setInterval(function () {
+        startTime ++;
+        console.log(startTime);
+    }, 1000);
+}
