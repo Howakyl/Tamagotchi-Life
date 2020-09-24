@@ -90,6 +90,17 @@ class Tamagotchi extends Pet {
             return petBoredom-= 1;
         }
     }
+
+    trackSleepiness = function () {
+        this.sleep = petSleepiness;
+        $('.sleepiness-stat').text(`Sleepiness: ${this.sleep}`);
+    }
+
+    increaseSleepiness = function () {
+        if (this.sleep >= 0) {
+            return petSleepiness += 1;
+        }
+    }
 };
 
 //Instance of Tamagotchi class
@@ -103,15 +114,16 @@ const startTimer = function () {
         Tamagotchi1.trackHunger();
         Tamagotchi1.trackAge();
         Tamagotchi1.trackBoredom();
+        Tamagotchi1.trackSleepiness();
     }, 1000);
 }
 
-
-//reduces hunger by 1 when food-button is clicked.
 $foodButton.on('click' , () => {
     Tamagotchi1.reduceHunger();
 });
 
 $playButton.on('click' , () => {
     Tamagotchi1.reduceBoredom();
+    Tamagotchi1.increaseSleepiness();
 });
+
