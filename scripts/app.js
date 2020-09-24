@@ -5,6 +5,11 @@ let $nameInput = $('.name-input');
 let $petName = $('#pet-name');
 let $sprite = $('.sprite');
 
+//game button globals
+const $foodButton = $('.food-button');
+const $playButton = $('.play-button');
+const $sleepButton = $('.sleep-button');
+
 //Time Globals
 let startTime = 0;
 
@@ -42,8 +47,9 @@ class Tamagotchi extends Pet {
         return this.name = $petName.text();
     })
 
+    //function to track age, assigns to Tamagotchi1.age - updates Age start every 30sec.
     trackAge = function () {
-        if (startTime % 2 === 0) {
+        if (startTime % 30 === 0) {
             petAge++;
             this.age = petAge;
         }
@@ -58,18 +64,27 @@ class Tamagotchi extends Pet {
         }
         $('.hunger-stat').text(`Hunger: ${this.hunger}`);
     }
+
+    trackBoredom = function () {
+        if (startTime % 10 === 0) {
+            petBoredom++;
+            this.boredom = petBoredom;
+        }
+        $('.boredom-stat').text(`Boredom: ${this.boredom}`);
+    }
 };
 
 //Instance of Tamagotchi class
 const Tamagotchi1 = new Tamagotchi;
 
-//function to keep track of time
+//function to keep track of time - calls Tamagotchi stat functions 
 const startTimer = function () {
     const timer = setInterval(function () {
         startTime ++;
         console.log(`time is: ${startTime}`)
         Tamagotchi1.trackHunger();
         Tamagotchi1.trackAge();
+        Tamagotchi1.trackBoredom();
     }, 1000);
 }
 
