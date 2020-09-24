@@ -140,7 +140,7 @@ a {
     margin: 40px 0;
     font-size: 15px;
     height: 3rem;
-    border-radius: 60%;
+    border-radius: 20%;
     background-color: var(--primary-color);
     color: rgba(0,0,0,.6);
     font-family: 'Lemon' , cursive, serif;

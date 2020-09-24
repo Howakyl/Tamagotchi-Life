@@ -40,7 +40,15 @@ class Tamagotchi extends Pet {
         $petName.text($(":text").val());
         startTimer();
         return this.name = $petName.text();
-    });
+    })
+
+    trackAge = function () {
+        if (startTime % 2 === 0) {
+            petAge++;
+            this.age = petAge;
+        }
+        $('.age-stat').text(`Age: ${this.age}`);
+    }
 
     //function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game.
     trackHunger = function () {
@@ -55,17 +63,13 @@ class Tamagotchi extends Pet {
 //Instance of Tamagotchi class
 const Tamagotchi1 = new Tamagotchi;
 
-//Stat Globals
-// Tamagotchi1.age = petAge;
-// Tamagotchi1.boredom = petBoredom;
-// Tamagotchi1.sleep = petSleepiness;
-
 //function to keep track of time
 const startTimer = function () {
     const timer = setInterval(function () {
         startTime ++;
         console.log(`time is: ${startTime}`)
         Tamagotchi1.trackHunger();
+        Tamagotchi1.trackAge();
     }, 1000);
 }
 
