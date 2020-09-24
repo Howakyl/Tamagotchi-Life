@@ -99,7 +99,7 @@ class Tamagotchi extends Pet {
     }
 
     increaseSleepiness = function () {
-        if (this.sleep >= 0) {
+        if (this.sleep >= 0 && this.boredom > 0) {
             return petSleepiness += 1;
         }
     }
@@ -139,7 +139,7 @@ $playButton.on('click' , () => {
     Tamagotchi1.increaseSleepiness();
 });
 
-//changes dayTime from day to night when $sleepButton is clicked
+//changes dayTime from day to night when $sleepButton is clicked. When Night phase, pet stop moving.
 $sleepButton.on('click' , () => {
     $('.sprite').toggleClass('pause');
     if (dayTime === true) {
