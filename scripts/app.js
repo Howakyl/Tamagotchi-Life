@@ -1,8 +1,6 @@
 //TODO: 
-//change game background when 'Sleep' is clicked
-//decrement sleepiness when 'Sleep' is clicked
 //change sprite to sleepy version when 'Sleep' is clicked
-//stop hunger and boredom increment when dayTime is false
+
 
 //Name & sprite globals
 let $nameInput = $('.name-input');
@@ -61,7 +59,7 @@ class Tamagotchi extends Pet {
 
     //function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 20 sec.
     trackHunger = function () {
-        if (startTime % 5 === 0) {
+        if (startTime % 20 === 0) {
             petHunger++;
         }
         this.hunger = petHunger;
@@ -84,12 +82,14 @@ class Tamagotchi extends Pet {
         $('.boredom-stat').text(`Boredom: ${this.boredom}`);
     }
 
+    //function attached to $playButton, reduces boredom when clicked
     reduceBoredom = function () {
         if (this.boredom > 0) {
             return petBoredom-= 1;
         }
     }
 
+    //function to track boredom, sleepiness resets to 0 when nighttime
     trackSleepiness = function () {
         this.sleep = petSleepiness;
         $('.sleepiness-stat').text(`Sleepiness: ${this.sleep}`);
@@ -98,6 +98,7 @@ class Tamagotchi extends Pet {
         }
     }
 
+    //function attached to $playButton, increases sleepiness when clicked, and boredom > 0
     increaseSleepiness = function () {
         if (this.sleep >= 0 && this.boredom > 0) {
             return petSleepiness += 1;
