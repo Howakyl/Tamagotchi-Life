@@ -44,7 +44,7 @@ class Tamagotchi extends Pet {
     changeName = $('.name-button').on('click' , function () {
         $sprite.toggleClass('hidden');
         $petName.text($(":text").val());
-        startTimer();
+            startTimer();
         return this.name = $petName.text();
     })
 
@@ -59,7 +59,7 @@ class Tamagotchi extends Pet {
 
     //function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 20 sec.
     trackHunger = function () {
-        if (startTime % 20 === 0) {
+        if (startTime % 1 === 0) {
             petHunger++;
         }
         this.hunger = petHunger;
@@ -104,6 +104,7 @@ class Tamagotchi extends Pet {
             return petSleepiness += 1;
         }
     }
+
 };
 
 //Instance of Tamagotchi class
@@ -112,12 +113,17 @@ const Tamagotchi1 = new Tamagotchi;
 //function to keep track of time - calls Tamagotchi stat functions 
 const startTimer = function () {
     const timer = setInterval(function () {
+        //FUNCTION TO END GAME
+        if (Tamagotchi1.hunger === 9 || Tamagotchi1.boredom === 9 || Tamagotchi1.sleep === 9) {
+            clearInterval(timer);
+        }
         startTime ++;
         console.log(`time is: ${startTime}`) //DONT FORGET TO REMOVE THIS AT END!!!
         $toggleGameBackground();
         Tamagotchi1.trackHunger();
         Tamagotchi1.trackAge();
         Tamagotchi1.trackSleepiness();
+        // Tamagotchi1.gameOver();
     }, 1000);
 }
 
