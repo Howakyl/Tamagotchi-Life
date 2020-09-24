@@ -1,10 +1,8 @@
 //TODO: 
-//track sleepiness
-//increment sleepiness when 'Play' is clicked
-//decrement boredom when 'Play' is clicked
 //change game background when 'Sleep' is clicked
 //decrement sleepiness when 'Sleep' is clicked
 //change sprite to sleepy version when 'Sleep' is clicked
+//stop hunger and boredom increment when dayTime is false
 
 //Name & sprite globals
 let $nameInput = $('.name-input');
@@ -18,6 +16,7 @@ const $sleepButton = $('.sleep-button');
 
 //Time Globals
 let startTime = 0;
+let dayTime = true;
 
 //Stat Globals
 let petAge = 0;
@@ -94,6 +93,9 @@ class Tamagotchi extends Pet {
     trackSleepiness = function () {
         this.sleep = petSleepiness;
         $('.sleepiness-stat').text(`Sleepiness: ${this.sleep}`);
+        if (dayTime === false) {
+            petSleepiness = 0;
+        }
     }
 
     increaseSleepiness = function () {
@@ -111,12 +113,22 @@ const startTimer = function () {
     const timer = setInterval(function () {
         startTime ++;
         console.log(`time is: ${startTime}`) //DONT FORGET TO REMOVE THIS AT END!!!
+        $toggleGameBackground();
         Tamagotchi1.trackHunger();
         Tamagotchi1.trackAge();
-        Tamagotchi1.trackBoredom();
         Tamagotchi1.trackSleepiness();
     }, 1000);
 }
+
+//toggles game screen background, and toggles trackBoredom() function.
+const $toggleGameBackground = function () {
+    if (dayTime === true) {
+        $('#game-screen').css('background-color', 'var(--console-screen)');
+        Tamagotchi1.trackBoredom();
+    } else {
+        $('#game-screen').css('background-color', '#4b6633');
+    }
+};
 
 $foodButton.on('click' , () => {
     Tamagotchi1.reduceHunger();
@@ -127,3 +139,12 @@ $playButton.on('click' , () => {
     Tamagotchi1.increaseSleepiness();
 });
 
+//changes dayTime from day to night when $sleepButton is clicked
+$sleepButton.on('click' , () => {
+    $('.sprite').toggleClass('pause');
+    if (dayTime === true) {
+        dayTime = false;
+    } else if (dayTime === false) {
+        dayTime = true;
+    }
+});

@@ -183,10 +183,6 @@ a {
     width: 100px;
 }
 
-.sprite:hover {
-    animation-play-state: paused;
-}
-
 @keyframes walk {
     0%{
         animation: bounce;
@@ -225,4 +221,8 @@ a {
     margin-bottom: 60px;
     animation: bounce;
     animation-duration: 5s;
+}
+
+.pause {
+    animation-play-state: paused;
 }
