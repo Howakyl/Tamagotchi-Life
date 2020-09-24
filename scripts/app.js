@@ -59,7 +59,7 @@ class Tamagotchi extends Pet {
 
     //function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 20 sec.
     trackHunger = function () {
-        if (startTime % 1 === 0) {
+        if (startTime % 20 === 0) {
             petHunger++;
         }
         this.hunger = petHunger;
@@ -114,8 +114,10 @@ const Tamagotchi1 = new Tamagotchi;
 const startTimer = function () {
     const timer = setInterval(function () {
         //FUNCTION TO END GAME
-        if (Tamagotchi1.hunger === 9 || Tamagotchi1.boredom === 9 || Tamagotchi1.sleep === 9) {
+        if (Tamagotchi1.hunger === 10 || Tamagotchi1.boredom === 10 || Tamagotchi1.sleep === 10) {
             clearInterval(timer);
+            let endGame = confirm(`Looks like ${Tamagotchi1.name} is exhausted... do you want to play again?`);
+            if (endGame) {location.reload();}
         }
         startTime ++;
         console.log(`time is: ${startTime}`) //DONT FORGET TO REMOVE THIS AT END!!!
