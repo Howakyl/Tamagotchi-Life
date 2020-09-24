@@ -133,6 +133,8 @@ const $toggleGameBackground = function () {
 
 $foodButton.on('click' , () => {
     Tamagotchi1.reduceHunger();
+    $('.heart').fadeToggle(2000);
+    $('.heart').fadeToggle(2000);
 });
 
 $playButton.on('click' , () => {

@@ -219,9 +219,9 @@ a {
 .heart {
     height: 50px;
     margin-bottom: 60px;
-    animation: bounce;
-    animation-duration: 5s;
+    display: none;
 }
+
 
 .pause {
     animation-play-state: paused;
