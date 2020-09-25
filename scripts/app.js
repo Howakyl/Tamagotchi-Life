@@ -1,4 +1,6 @@
 //TODO: 
+//update the README wireframe
+//update README user stories
 
 //Time Globals
 let startTime = 0;
@@ -32,6 +34,7 @@ class Tamagotchi extends Pet {
         $sprite.toggleClass('hidden');
         $petName.text($(":text").val());
             startTimer();
+        $('.name-button').prop('disabled' , true);
         return this.name = $petName.text();
     })
 
