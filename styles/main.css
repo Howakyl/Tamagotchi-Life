@@ -240,3 +240,24 @@ a {
 .pause {
     animation-play-state: paused;
 }
+
+@media only screen and (max-width: 1000px) {
+    @keyframes forward {
+        0% {
+            transform: translateX(-100px);
+        }
+    
+    
+        50% {
+            transform: translateY(25px);
+            transform: translateX(200px);
+    
+        }
+        75% {
+            transform: translateY(-25px);
+        }
+        100% {
+            transform: translateX(-100px);
+        }
+    }
+}
