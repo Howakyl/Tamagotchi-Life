@@ -1,8 +1,6 @@
 //TODO: 
 //create baby form and sleeping baby form 
 //change to evolved form when age = 2
-//sleepy icon when night time
-
 
 //Name & sprite globals
 let $nameInput = $('.name-input');
@@ -45,10 +43,16 @@ class Tamagotchi extends Pet {
 
     //function to track age, assigns to Tamagotchi1.age - updates Age start every 30sec.
     trackAge = function () {
-        if (startTime % 30 === 0) {
+        if (startTime % 3 === 0) {
             this.age++;
         }
         $('.age-stat').text(`Age: ${this.age}`);
+    }
+
+    evolvePet = function () {
+        if (this.age === 2) {
+            $('.sprite').attr("src" , "images/adult-sprite-0.png");
+        }
     }
 
     //function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 20 sec.
@@ -115,18 +119,24 @@ const startTimer = function () {
         $toggleGameBackground();
         Tamagotchi1.trackHunger();
         Tamagotchi1.trackAge();
+        Tamagotchi1.evolvePet();
         Tamagotchi1.trackSleepiness();
     }, 1000);
 }
 
 //toggles game screen background, and toggles trackBoredom() function.
+//also toggles sprite image to sleeping
 const $toggleGameBackground = function () {
     if (dayTime === true) {
         $('#game-screen').css('background-color', 'var(--console-screen)');
         Tamagotchi1.trackBoredom();
     } else {
-        $('.sprite').attr("src" , "images/sprite-0-sleeping.png");
         $('#game-screen').css('background-color', '#4b6633');
+        if (Tamagotchi1.age === 2) {
+            $('.sprite').attr("src" , "images/sprite-0-sleeping.png");
+        } else if (Tamagotchi1.age < 2) {
+            $('.sprite').attr("src" , "images/baby-sprite-sleeping-0.png");
+        }
     }
 };
 
@@ -139,7 +149,7 @@ $('.food-button').on('click' , () => {
 $('.play-button').on('click' , () => {
     Tamagotchi1.increaseSleepiness();
     Tamagotchi1.reduceBoredom();
-    spriteBounce($('.sprite'), 3, '20px', 300);
+    spriteBounce( 3, '20px', 300);
 });
 
 //changes dayTime from day to night when $sleepButton is clicked. When Night phase, pet stop moving.
@@ -151,14 +161,17 @@ $('.sleep-button').on('click' , () => {
         dayTime = false;
     } else if (dayTime === false) {
         dayTime = true;
-        $('.sprite').attr("src" , "images/adult-sprite-0.png");
+        if (Tamagotchi1.age === 2) {
+            $('.sprite').attr("src" , "images/adult-sprite-0.png");
+        } else if (Tamagotchi1.age < 2) {
+            $('.sprite').attr("src" , "images/baby-sprite-0.png");
+        }
     }
 });
 
-//function that animates a 'bounce' on sprite when 'Play' button is clicked
-function spriteBounce(element, times, distance, speed) {
+//function that animates a 'bounce' on sprite when 'Play' button is clicked - pushes sprite up and down with margin, 3 times (called above)
+function spriteBounce(times, distance, speed) {
     for (i = 0; i < times; i++) {
-        element.animate({marginTop: '-='+distance},speed)
-            .animate({marginTop: '+='+distance},speed);
+        $('.sprite').animate({marginTop: '-='+distance},speed).animate({marginTop: '+='+distance},speed);
     }
 };
