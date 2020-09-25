@@ -18,11 +18,13 @@ Tamagotchi Life is an in-browser game based on the 1996 hit handheld game! I've 
 
 ---
 
-### Wireframe placeholder
+### Wireframe
+
+![landing page](/wireframe-images/20200923_103611.jpg)
 
 Here is a drawing of the "Landing page" for my site. I decided to go with a hand-drawn approach for my wireframe, as I figured it would be much quicker for me to translate my ideas onto paper. It features a title bouncing into view, followed by a fade-in of my "mission statement" and a bar to enter your Tamagotchi's name. Click to start the game!
 
-### Wireframe placeholder pt. 2
+![game screen](/wireframe-images/20200923_103605.jpg)
 
 Above is a drawing of the main game screen. I utilized css flexbox heavily here, using multiple flex containers to position my elements corrrectly. The Tamagotchi should move left and right across the screen, and on the right side, there are interactable buttons for the user. On the bottom of the screen, and on the top, stats are displayed. 
 

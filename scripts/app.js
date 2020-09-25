@@ -65,7 +65,7 @@ class Tamagotchi extends Pet {
     reduceHunger = function () {
         if (this.hunger > 0) {
             return this.hunger -= 1;
-        }
+        } 
     }
 
     //track boredom, assigns to Tamagotchi1.boredom - updates boredom on game ever 10 sec.
