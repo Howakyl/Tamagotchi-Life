@@ -145,6 +145,8 @@ $('.play-button').on('click' , () => {
 //changes dayTime from day to night when $sleepButton is clicked. When Night phase, pet stop moving.
 $('.sleep-button').on('click' , () => {
     $('.sprite').toggleClass('pause');
+    $('.snore').toggleClass('hidden');
+    $('.snore').toggleClass('pause');
     if (dayTime === true) {
         dayTime = false;
     } else if (dayTime === false) {

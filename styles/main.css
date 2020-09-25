@@ -174,13 +174,16 @@ a {
 }
 
 .sprite {
+    margin-top: 100px;
+    height: 100px;
+    width: 100px;
+}
+
+.sprite-movement {
     animation: bounce; 
     animation-duration: 1s;
     animation:walk 1s steps(1) infinite,
     forward 25s linear infinite;
-    margin-top: 100px;
-    height: 100px;
-    width: 100px;
 }
 
 @keyframes walk {
@@ -224,6 +227,12 @@ a {
     bottom: -650px;
 }
 
+.snore {
+    height: 50px;
+    position: absolute;
+    bottom: -700px;
+    margin-left: 20px;
+}
 
 .pause {
     animation-play-state: paused;
