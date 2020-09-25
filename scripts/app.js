@@ -117,8 +117,6 @@ const startTimer = function () {
             if (endGame) {location.reload();}
         }
         startTime ++;
-        console.log(`time is: ${startTime}`) //DONT FORGET TO REMOVE THIS AT END!!!
-        console.log(`Pet age is ${Tamagotchi1.age}`);
         $toggleGameBackground();
         Tamagotchi1.trackHunger();
         Tamagotchi1.trackAge();
