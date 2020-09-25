@@ -219,19 +219,22 @@ a {
     visibility: hidden;
 }
 
+.action-icon-container {
+    height: 150px;
+    width: 100px;
+    display: flex;
+    margin-right: 20px;
+}
+
 .heart {
     height: 50px;
     display: none;
-    position: absolute;
     padding-bottom: 15px;
-    bottom: -650px;
 }
 
 .snore {
     height: 50px;
-    position: absolute;
-    bottom: -700px;
-    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .pause {
