@@ -43,14 +43,14 @@ class Tamagotchi extends Pet {
 
     //function to track age, assigns to Tamagotchi1.age - updates Age start every 30sec.
     trackAge = function () {
-        if (startTime % 3 === 0) {
+        if (startTime % 30   === 0) {
             this.age++;
         }
         $('.age-stat').text(`Age: ${this.age}`);
     }
 
     evolvePet = function () {
-        if (this.age === 2) {
+        if (this.age > 1 && dayTime === true) {
             $('.sprite').attr("src" , "images/adult-sprite-0.png");
         }
     }
@@ -116,6 +116,7 @@ const startTimer = function () {
         }
         startTime ++;
         console.log(`time is: ${startTime}`) //DONT FORGET TO REMOVE THIS AT END!!!
+        console.log(`Pet age is ${Tamagotchi1.age}`);
         $toggleGameBackground();
         Tamagotchi1.trackHunger();
         Tamagotchi1.trackAge();
@@ -132,11 +133,11 @@ const $toggleGameBackground = function () {
         Tamagotchi1.trackBoredom();
     } else {
         $('#game-screen').css('background-color', '#4b6633');
-        if (Tamagotchi1.age === 2) {
+        if (Tamagotchi1.age > 1) {
             $('.sprite').attr("src" , "images/sprite-0-sleeping.png");
         } else if (Tamagotchi1.age < 2) {
             $('.sprite').attr("src" , "images/baby-sprite-sleeping-0.png");
-        }
+        };
     }
 };
 
@@ -161,7 +162,7 @@ $('.sleep-button').on('click' , () => {
         dayTime = false;
     } else if (dayTime === false) {
         dayTime = true;
-        if (Tamagotchi1.age === 2) {
+        if (Tamagotchi1.age >= 2) {
             $('.sprite').attr("src" , "images/adult-sprite-0.png");
         } else if (Tamagotchi1.age < 2) {
             $('.sprite').attr("src" , "images/baby-sprite-0.png");
