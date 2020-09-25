@@ -218,8 +218,10 @@ a {
 
 .heart {
     height: 50px;
-    margin-bottom: 60px;
     display: none;
+    position: absolute;
+    padding-bottom: 15px;
+    bottom: -650px;
 }
 
 

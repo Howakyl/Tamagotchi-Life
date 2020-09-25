@@ -1,5 +1,8 @@
 //TODO: 
 //change sprite to sleepy version when 'Sleep' is clicked
+//change to evolved form when age = 2
+//sleepy icon when night time
+//play animation
 
 
 //Name & sprite globals
