@@ -1,16 +1,10 @@
 //TODO: 
-//create baby form and sleeping baby form 
-//change to evolved form when age = 2
-
-//Name & sprite globals
-let $nameInput = $('.name-input');
-let $petName = $('#pet-name');
 
 //Time Globals
 let startTime = 0;
 let dayTime = true;
 
-//Stat Globals
+
 
 
 // Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
@@ -49,13 +43,14 @@ class Tamagotchi extends Pet {
         $('.age-stat').text(`Age: ${this.age}`);
     }
 
+    //changes sprite if pet age is greater than 1
     evolvePet = function () {
         if (this.age > 1 && dayTime === true) {
             $('.sprite').attr("src" , "images/adult-sprite-0.png");
         }
     }
 
-    //function to track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 20 sec.
+    //track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 20 sec.
     trackHunger = function () {
         if (startTime % 20 === 0) {
             this.hunger++;
@@ -63,14 +58,14 @@ class Tamagotchi extends Pet {
         $('.hunger-stat').text(`Hunger: ${this.hunger}`);
     }
 
-    //function attached to $foodButton event listener, reduces hunger by 1 when clicked.
+    //attached to $foodButton event listener, reduces hunger by 1 when clicked.
     reduceHunger = function () {
         if (this.hunger > 0) {
             return this.hunger -= 1;
         }
     }
 
-    //function to track boredom, assigns to Tamagotchi1.boredom - updates boredom on game ever 10 sec.
+    //track boredom, assigns to Tamagotchi1.boredom - updates boredom on game ever 10 sec.
     trackBoredom = function () {
         if (startTime % 10 === 0) {
             this.boredom++;
@@ -78,14 +73,14 @@ class Tamagotchi extends Pet {
         $('.boredom-stat').text(`Boredom: ${this.boredom}`);
     }
 
-    //function attached to $playButton, reduces boredom when clicked
+    // attached to $playButton, reduces boredom when clicked
     reduceBoredom = function () {
         if (this.boredom > 0) {
             return this.boredom -= 1;
         }
     }
 
-    //function to track boredom, sleepiness resets to 0 when nighttime
+    //tracks sleepiness on screen, sleepiness resets to 0 when nighttime
     trackSleepiness = function () {
         $('.sleepiness-stat').text(`Sleepiness: ${this.sleep}`);
         if (dayTime === false) {
@@ -102,6 +97,9 @@ class Tamagotchi extends Pet {
 
 };
 
+
+
+
 //Instance of Tamagotchi class
 const Tamagotchi1 = new Tamagotchi;
 
@@ -110,6 +108,7 @@ const startTimer = function () {
     const timer = setInterval(function () {
         //CONDITIONAL TO END GAME
         if (Tamagotchi1.hunger === 10 || Tamagotchi1.boredom === 10 || Tamagotchi1.sleep === 10) {
+            $('.sprite').remove();
             clearInterval(timer);
             let endGame = confirm(`Looks like ${Tamagotchi1.name} is exhausted... do you want to play again?`);
             if (endGame) {location.reload();}
@@ -153,6 +152,13 @@ $('.play-button').on('click' , () => {
     spriteBounce( 3, '20px', 300);
 });
 
+//function that animates a 'bounce' on sprite when 'Play' button is clicked - pushes sprite up and down with margin, 3 times (called above)
+function spriteBounce(times, distance, speed) {
+    for (i = 0; i < times; i++) {
+        $('.sprite').animate({marginTop: '-='+distance},speed).animate({marginTop: '+='+distance},speed);
+    }
+};
+
 //changes dayTime from day to night when $sleepButton is clicked. When Night phase, pet stop moving.
 $('.sleep-button').on('click' , () => {
     $('.sprite').toggleClass('pause');
@@ -170,9 +176,3 @@ $('.sleep-button').on('click' , () => {
     }
 });
 
-//function that animates a 'bounce' on sprite when 'Play' button is clicked - pushes sprite up and down with margin, 3 times (called above)
-function spriteBounce(times, distance, speed) {
-    for (i = 0; i < times; i++) {
-        $('.sprite').animate({marginTop: '-='+distance},speed).animate({marginTop: '+='+distance},speed);
-    }
-};
