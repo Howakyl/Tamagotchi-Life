@@ -1,5 +1,5 @@
 //TODO: 
-//change sprite to sleepy version when 'Sleep' is clicked
+//create baby form and sleeping baby form 
 //change to evolved form when age = 2
 //sleepy icon when night time
 
