@@ -1,6 +1,5 @@
 //TODO: 
-//update the README wireframe
-//update README user stories
+
 
 //Time Globals
 let startTime = 0;
