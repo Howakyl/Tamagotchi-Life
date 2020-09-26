@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: 'Gameboy';
-    src: url('../styles/local-fonts/Early-GameBoy.ttf');
+    src: url('../project-0/styles/local-fonts/Early-GameBoy.ttf');
 }
 
 * {
