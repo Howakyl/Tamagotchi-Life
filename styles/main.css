@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Gameboy';
+    src: url('../local-fonts/early-gameboy.ttf') format('truetype');
+}
+
 :root {
     --base-font: 'Poppins' , sans-serif;
     --secondary-color: #94d6b2;
@@ -8,10 +13,6 @@
     --console-sprite: #0f380f;
 }
 
-@font-face {
-    font-family: 'Gameboy';
-    src: url('../local-fonts/early-gameboy.ttf');
-}
 
 * {
     box-sizing: border-box;
