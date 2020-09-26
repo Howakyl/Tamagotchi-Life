@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Gameboy';
-    src: url('../Project-0/local-fonts/early-gameboy.ttf') format('truetype');
+    src: url('/local-fonts/Early-GameBoy.ttf');
 }
 
 :root {
