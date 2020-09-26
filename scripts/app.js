@@ -49,7 +49,7 @@ class Tamagotchi extends Pet {
     //changes sprite if pet age is greater than 1
     evolvePet = function () {
         if (this.age > 1 && dayTime === true) {
-            $('.sprite').attr("src" , "images/adult-sprite-0.png");
+            $('.sprite').attr("src" , "./images/adult-sprite-0.png");
         }
     }
 
@@ -134,9 +134,9 @@ const $toggleGameBackground = function () {
     } else {
         $('#game-screen').css('background-color', '#4b6633');
         if (Tamagotchi1.age > 1) {
-            $('.sprite').attr("src" , "images/sprite-0-sleeping.png");
+            $('.sprite').attr("src" , "./images/sprite-0-sleeping.png");
         } else if (Tamagotchi1.age < 2) {
-            $('.sprite').attr("src" , "images/baby-sprite-sleeping-0.png");
+            $('.sprite').attr("src" , "./images/baby-sprite-sleeping-0.png");
         };
     }
 };
@@ -170,9 +170,9 @@ $('.sleep-button').on('click' , () => {
     } else if (dayTime === false) {
         dayTime = true;
         if (Tamagotchi1.age >= 2) {
-            $('.sprite').attr("src" , "images/adult-sprite-0.png");
+            $('.sprite').attr("src" , "./images/adult-sprite-0.png");
         } else if (Tamagotchi1.age < 2) {
-            $('.sprite').attr("src" , "images/baby-sprite-0.png");
+            $('.sprite').attr("src" , "./images/baby-sprite-0.png");
         }
     }
 });
