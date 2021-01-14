@@ -142,8 +142,8 @@ const $toggleGameBackground = function () {
 // function to make pixel heart fade in, then fade out
 $('.food-button').on('click' , () => {
     Tamagotchi1.reduceHunger();
-    $('.heart').fadeToggle(2000);
-    $('.heart').fadeToggle(2000);
+    $('.heart').fadeToggle(1500);
+    $('.heart').fadeToggle(1500);
 });
 
 $('.play-button').on('click' , () => {
