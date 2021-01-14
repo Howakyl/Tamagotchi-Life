@@ -29,17 +29,17 @@ class Tamagotchi extends Pet {
     //also removes the 'hidden' class from Sprite.
     changeName = $('.name-button').on('click' , function () {
         let $sprite = $('.sprite');
-        let $petName = $('#pet-name');
+        // let $petName = ;
         $sprite.toggleClass('hidden');
-        $petName.text($(":text").val());
+        $('#pet-name').text($(":text").val());
             startTimer();
         $('.name-button').prop('disabled' , true);
-        return this.name = $petName.text();
+        return this.name = $('#pet-name').text();
     })
 
     //function to track age, assigns to Tamagotchi1.age - updates Age start every 30sec.
     trackAge = function () {
-        if (startTime % 30   === 0) {
+        if (startTime % 30 === 0) {
             this.age++;
         }
         $('.age-stat').text(`Age: ${this.age}`);
@@ -47,14 +47,14 @@ class Tamagotchi extends Pet {
 
     //changes sprite if pet age is greater than 1
     evolvePet = function () {
-        if (this.age > 1 && dayTime === true) {
+        if (this.age > 1 && dayTime) {
             $('.sprite').attr("src" , "./images/adult-sprite-0.png");
         }
     }
 
-    //track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 20 sec.
+    //track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 10 sec.
     trackHunger = function () {
-        if (startTime % 20 === 0) {
+        if (startTime % 10 === 0) {
             this.hunger++;
         }
         $('.hunger-stat').text(`Hunger: ${this.hunger}`);
@@ -67,9 +67,9 @@ class Tamagotchi extends Pet {
         } 
     }
 
-    //track boredom, assigns to Tamagotchi1.boredom - updates boredom on game ever 10 sec.
+    //track boredom, assigns to Tamagotchi1.boredom - updates boredom on game ever 5 sec.
     trackBoredom = function () {
-        if (startTime % 10 === 0) {
+        if (startTime % 5 === 0) {
             this.boredom++;
         }
         $('.boredom-stat').text(`Boredom: ${this.boredom}`);
