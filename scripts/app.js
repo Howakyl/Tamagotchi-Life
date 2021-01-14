@@ -28,9 +28,8 @@ class Tamagotchi extends Pet {
     //function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
     //also removes the 'hidden' class from Sprite.
     changeName = $('.name-button').on('click' , function () {
-        let $sprite = $('.sprite');
-        // let $petName = ;
-        $sprite.toggleClass('hidden');
+        // let $sprite = ;
+        $('.sprite').toggleClass('hidden');
         $('#pet-name').text($(":text").val());
             startTimer();
         $('.name-button').prop('disabled' , true);
@@ -140,6 +139,7 @@ const $toggleGameBackground = function () {
     }
 };
 
+// function to make pixel heart fade in, then fade out
 $('.food-button').on('click' , () => {
     Tamagotchi1.reduceHunger();
     $('.heart').fadeToggle(2000);
