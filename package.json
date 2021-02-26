@@ -1,0 +1,19 @@
+{
+  "name": "project-0",
+  "version": "1.0.0",
+  "description": "![tamagotchi sprite](/images/adult-sprite-0.png) # Project 0: tamagotchi",
+  "main": "./scripts/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/Howakyl96/project-0-tomagotchi.git"
+  },
+  "author": "Kyle Howard",
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

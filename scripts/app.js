@@ -1,12 +1,7 @@
-//TODO: 
-
 
 //Time Globals
 let startTime = 0;
 let dayTime = true;
-
-
-
 
 // Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
 class Pet {
