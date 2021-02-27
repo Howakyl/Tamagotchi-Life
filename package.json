@@ -4,6 +4,7 @@
   "description": "![tamagotchi sprite](/images/adult-sprite-0.png) # Project 0: tamagotchi",
   "main": "./scripts/app.js",
   "scripts": {
+    "watch": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lite-server"
   },
@@ -13,7 +14,9 @@
   },
   "author": "Kyle Howard",
   "license": "ISC",
-  "dependencies": {
-    "lite-server": "^2.6.1"
+  "devDependencies": {
+    "@types/jquery": "^3.5.5",
+    "lite-server": "^2.6.1",
+    "typescript": "^4.2.2"
   }
 }
