@@ -1,10 +1,26 @@
+import $ from 'jquery';
 //Time Globals
 let startTime = 0;
 let dayTime = true;
 
 // Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
+interface Pet {
+    age: number;
+    hunger: number;
+    boredom: number;
+    sleep: number;
+}
+
+interface Tamagotchi {
+    name: string | string[] ;
+    // changeName: JQuery<HTMLElement>;
+}
+
+
 class Pet {
-    constructor (age, hunger, boredom, sleep) {
+    // age: number;
+
+    constructor (age: number, hunger: number, boredom: number, sleep: number) {
         this.age = age;
         this.hunger = hunger;
         this.boredom = boredom;
@@ -21,7 +37,7 @@ class Tamagotchi extends Pet {
 
     //function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
     //also removes the 'hidden' class from Sprite.
-    changeName = $('.name-button').on('click' , function () {
+    changeName = $('.name-button').on('click' , () => {
         // let $sprite = ;
         $('.sprite').toggleClass('hidden');
         $('#pet-name').text($(":text").val());
