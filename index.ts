@@ -36,7 +36,7 @@ class Tamagotchi extends Pet {
 
     changeName = $('.name-button').on('click' , () => {
         $('.sprite').toggleClass('hidden');
-        $('#pet-name').text();
+        $('#pet-name').text($(":text").val()[0]);
             startTimer();
         $('.name-button').prop('disabled' , true);
         return this.name = $('#pet-name').text();
