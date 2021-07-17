@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,13 +11,10 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
-var $ = require("jquery");
 //Time Globals
 var startTime = 0;
 var dayTime = true;
 var Pet = /** @class */ (function () {
-    // age: number;
     function Pet(age, hunger, boredom, sleep) {
         this.age = age;
         this.hunger = hunger;
@@ -37,9 +33,8 @@ var Tamagotchi = /** @class */ (function (_super) {
         //function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
         //also removes the 'hidden' class from Sprite.
         _this.changeName = $('.name-button').on('click', function () {
-            // let $sprite = ;
             $('.sprite').toggleClass('hidden');
-            $('#pet-name').text($(":text").val()[0]);
+            $('#pet-name').text($(":text").val());
             startTimer();
             $('.name-button').prop('disabled', true);
             return _this.name = $('#pet-name').text();
@@ -47,53 +42,53 @@ var Tamagotchi = /** @class */ (function (_super) {
         //function to track age, assigns to Tamagotchi1.age - updates Age start every 30sec.
         _this.trackAge = function () {
             if (startTime % 30 === 0) {
-                this.age++;
+                _this.age++;
             }
-            $('.age-stat').text("Age: " + this.age);
+            $('.age-stat').text("Age: " + _this.age);
         };
         //changes sprite if pet age is greater than 1
         _this.evolvePet = function () {
-            if (this.age > 1 && dayTime) {
+            if (_this.age > 1 && dayTime) {
                 $('.sprite').attr("src", "./images/adult-sprite-0.png");
             }
         };
         //track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 10 sec.
         _this.trackHunger = function () {
             if (startTime % 10 === 0) {
-                this.hunger++;
+                _this.hunger++;
             }
-            $('.hunger-stat').text("Hunger: " + this.hunger);
+            $('.hunger-stat').text("Hunger: " + _this.hunger);
         };
         //attached to $foodButton event listener, reduces hunger by 1 when clicked.
         _this.reduceHunger = function () {
-            if (this.hunger > 0) {
-                return this.hunger -= 1;
+            if (_this.hunger > 0) {
+                return _this.hunger -= 1;
             }
         };
         //track boredom, assigns to Tamagotchi1.boredom - updates boredom on game ever 5 sec.
         _this.trackBoredom = function () {
             if (startTime % 5 === 0) {
-                this.boredom++;
+                _this.boredom++;
             }
-            $('.boredom-stat').text("Boredom: " + this.boredom);
+            $('.boredom-stat').text("Boredom: " + _this.boredom);
         };
         // attached to $playButton, reduces boredom when clicked
         _this.reduceBoredom = function () {
-            if (this.boredom > 0) {
-                return this.boredom -= 1;
+            if (_this.boredom > 0) {
+                return _this.boredom -= 1;
             }
         };
         //tracks sleepiness on screen, sleepiness resets to 0 when nighttime
         _this.trackSleepiness = function () {
-            $('.sleepiness-stat').text("Sleepiness: " + this.sleep);
+            $('.sleepiness-stat').text("Sleepiness: " + _this.sleep);
             if (dayTime === false) {
-                this.sleep = 0;
+                _this.sleep = 0;
             }
         };
         //function attached to $playButton, increases sleepiness when clicked, and boredom > 0
         _this.increaseSleepiness = function () {
-            if (this.sleep > -1 && this.boredom > 0) {
-                return this.sleep += 1;
+            if (_this.sleep > -1 && _this.boredom > 0) {
+                return _this.sleep += 1;
             }
         };
         _this.name = name;
@@ -154,12 +149,11 @@ $('.play-button').on('click', function () {
     spriteBounce(3, '20px', 300);
 });
 //function that animates a 'bounce' on sprite when 'Play' button is clicked - pushes sprite up and down with margin, 3 times (called above)
-function spriteBounce(times, distance, speed) {
+var spriteBounce = function (times, distance, speed) {
     for (var i = 0; i < times; i++) {
         $('.sprite').animate({ marginTop: '-=' + distance }, speed).animate({ marginTop: '+=' + distance }, speed);
     }
-}
-;
+};
 //changes dayTime from day to night when $sleepButton is clicked. When Night phase, pet stop moving.
 $('.sleep-button').on('click', function () {
     $('.sprite').toggleClass('pause');
