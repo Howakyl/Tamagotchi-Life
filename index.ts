@@ -1,11 +1,22 @@
-
 //Time Globals
-let startTime = 0;
-let dayTime = true;
+let startTime: number = 0;
+let dayTime: boolean = true;
 
 // Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
+interface Pet {
+    age: number;
+    hunger: number;
+    boredom: number;
+    sleep: number;
+}
+
+interface Tamagotchi {
+    name: string;
+}
+
+
 class Pet {
-    constructor (age, hunger, boredom, sleep) {
+    constructor (age: number, hunger: number, boredom: number, sleep: number) {
         this.age = age;
         this.hunger = hunger;
         this.boredom = boredom;
@@ -22,17 +33,17 @@ class Tamagotchi extends Pet {
 
     //function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
     //also removes the 'hidden' class from Sprite.
-    changeName = $('.name-button').on('click' , function () {
-        // let $sprite = ;
+
+    changeName = $('.name-button').on('click' , () => {
         $('.sprite').toggleClass('hidden');
-        $('#pet-name').text($(":text").val());
+        $('#pet-name').text($(":text").val()[0]);
             startTimer();
         $('.name-button').prop('disabled' , true);
         return this.name = $('#pet-name').text();
     })
 
     //function to track age, assigns to Tamagotchi1.age - updates Age start every 30sec.
-    trackAge = function () {
+    trackAge = () => {
         if (startTime % 30 === 0) {
             this.age++;
         }
@@ -40,14 +51,14 @@ class Tamagotchi extends Pet {
     }
 
     //changes sprite if pet age is greater than 1
-    evolvePet = function () {
+    evolvePet = () => {
         if (this.age > 1 && dayTime) {
             $('.sprite').attr("src" , "./images/adult-sprite-0.png");
         }
     }
 
     //track hunger, assigns to Tamagotchi1.hunger - updates Hunger stat on game every 10 sec.
-    trackHunger = function () {
+    trackHunger = () => {
         if (startTime % 10 === 0) {
             this.hunger++;
         }
@@ -55,14 +66,14 @@ class Tamagotchi extends Pet {
     }
 
     //attached to $foodButton event listener, reduces hunger by 1 when clicked.
-    reduceHunger = function () {
+    reduceHunger = () => {
         if (this.hunger > 0) {
             return this.hunger -= 1;
         } 
     }
 
     //track boredom, assigns to Tamagotchi1.boredom - updates boredom on game ever 5 sec.
-    trackBoredom = function () {
+    trackBoredom = () => {
         if (startTime % 5 === 0) {
             this.boredom++;
         }
@@ -70,14 +81,14 @@ class Tamagotchi extends Pet {
     }
 
     // attached to $playButton, reduces boredom when clicked
-    reduceBoredom = function () {
+    reduceBoredom = () => {
         if (this.boredom > 0) {
             return this.boredom -= 1;
         }
     }
 
     //tracks sleepiness on screen, sleepiness resets to 0 when nighttime
-    trackSleepiness = function () {
+    trackSleepiness = () => {
         $('.sleepiness-stat').text(`Sleepiness: ${this.sleep}`);
         if (dayTime === false) {
             this.sleep = 0;
@@ -85,7 +96,7 @@ class Tamagotchi extends Pet {
     }
 
     //function attached to $playButton, increases sleepiness when clicked, and boredom > 0
-    increaseSleepiness = function () {
+    increaseSleepiness = () => {
         if (this.sleep > -1 && this.boredom > 0) {
             return this.sleep += 1;
         }
@@ -100,8 +111,8 @@ class Tamagotchi extends Pet {
 const Tamagotchi1 = new Tamagotchi;
 
 //function to keep track of time - calls Tamagotchi stat functions 
-const startTimer = function () {
-    const timer = setInterval(function () {
+const startTimer = () => {
+    const timer = setInterval(() => {
         //CONDITIONAL TO END GAME
         if (Tamagotchi1.hunger === 10 || Tamagotchi1.boredom === 10 || Tamagotchi1.sleep === 10) {
             $('.sprite').remove();
@@ -148,8 +159,8 @@ $('.play-button').on('click' , () => {
 });
 
 //function that animates a 'bounce' on sprite when 'Play' button is clicked - pushes sprite up and down with margin, 3 times (called above)
-function spriteBounce(times, distance, speed) {
-    for (i = 0; i < times; i++) {
+const spriteBounce = (times: number, distance: string, speed: number) => {
+    for (let i = 0; i < times; i++) {
         $('.sprite').animate({marginTop: '-='+distance},speed).animate({marginTop: '+='+distance},speed);
     }
 };
