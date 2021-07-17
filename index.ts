@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import * as $ from 'jquery';
 //Time Globals
 let startTime = 0;
 let dayTime = true;
@@ -12,7 +12,7 @@ interface Pet {
 }
 
 interface Tamagotchi {
-    name: string | string[] ;
+    name: string;
     // changeName: JQuery<HTMLElement>;
 }
 
@@ -37,10 +37,11 @@ class Tamagotchi extends Pet {
 
     //function that gives Tamagotchi1 a name upon the "Start" button being clicked. Dependent upon the user inputting text in 'choose a name' field.
     //also removes the 'hidden' class from Sprite.
+
     changeName = $('.name-button').on('click' , () => {
         // let $sprite = ;
         $('.sprite').toggleClass('hidden');
-        $('#pet-name').text($(":text").val());
+        $('#pet-name').text($(":text").val()[0]);
             startTimer();
         $('.name-button').prop('disabled' , true);
         return this.name = $('#pet-name').text();

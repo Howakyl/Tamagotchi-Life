@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -11,11 +12,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+exports.__esModule = true;
+var $ = require("jquery");
 //Time Globals
 var startTime = 0;
 var dayTime = true;
-// Parent class for Tamagotchis, with params of age, hunger, boredom, and sleep)
 var Pet = /** @class */ (function () {
+    // age: number;
     function Pet(age, hunger, boredom, sleep) {
         this.age = age;
         this.hunger = hunger;
@@ -36,10 +39,10 @@ var Tamagotchi = /** @class */ (function (_super) {
         _this.changeName = $('.name-button').on('click', function () {
             // let $sprite = ;
             $('.sprite').toggleClass('hidden');
-            $('#pet-name').text($(":text").val());
+            $('#pet-name').text($(":text").val()[0]);
             startTimer();
             $('.name-button').prop('disabled', true);
-            return this.name = $('#pet-name').text();
+            return _this.name = $('#pet-name').text();
         });
         //function to track age, assigns to Tamagotchi1.age - updates Age start every 30sec.
         _this.trackAge = function () {
