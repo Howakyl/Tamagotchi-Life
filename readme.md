@@ -14,6 +14,7 @@ Tamagotchi Life is an in-browser game based on the 1996 hit handheld game! I've 
 * HTML
 * CSS 
 * CSS flexbox
+* TypeScript
 * JavaScript
 * jQuery
 
